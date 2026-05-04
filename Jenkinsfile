@@ -6,7 +6,8 @@ stages {
 
     stage('Clone Repository') {
         steps {
-            git 'https://github.com/ShivangChaurasia/Jenkins-CICD.git'
+            echo 'Cloning Repository...'
+            git 'https://github.com/ShivangChaurasia/Jenkins-CICD-Project.git'
         }
     }
 
@@ -26,6 +27,16 @@ stages {
         steps {
             echo 'Deploying Application...'
         }
+    }
+}
+
+post {
+    success {
+        echo 'Pipeline executed successfully!'
+    }
+
+    failure {
+        echo 'Pipeline failed!'
     }
 }
 ```
